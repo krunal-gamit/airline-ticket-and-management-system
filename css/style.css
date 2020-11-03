@@ -4,19 +4,19 @@ html, body{
 	width:100%;
 	height: 100%;
 	font-family: "Raleway, Lexend Deca" !important;
-	color: black;
 	background: #fff !important;
 }
 
 .menu{
-	
-	height: 7vh;
+	background-color: white;
+	height: 8vh;
 	font-family: Raleway;
+	color: #1B262C;
 }
 .menu ul{
 	float: right;
 	list-style-type: none;
-	margin-top: 25px;
+	margin-top: 30px;
 	padding-right: 70px;
 }
 
@@ -39,9 +39,8 @@ html, body{
 
 .menu ul li.active a{
 	background-color: #fff;
-	
- 
 }
+
 
 .help{
 	font-size: 15px;
@@ -60,13 +59,14 @@ html, body{
 }
 
 #logIn{
-	font-size: 15px;
+	font-size: 14px;
 	color: white;
-	background-color: blue; 
+	margin-top: -3px;
+	background-color: #3282B8;
+	border-radius: 10px; 
+	padding: 2px 5px;
 	float: right;
 	list-style-type: none;
-	padding-left: 3px;
-	padding-right: 3px;
 }
 
 #logIn li a:hover{
@@ -85,16 +85,17 @@ html, body{
 
 #div1{
 	/*background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));*/
-	height: 200vh;
-	background-image: url("../img/test.jpg");
-
+	height: 30vh;
+	background: #BBE1FA;
 	background-size: cover;
-	
 	background-repeat: no-repeat;
 	background-attachment: local;
 	padding-top: 200px;
 }
 
+#booking{
+	margin-top: -15rem;
+}
 
 	a{text-decoration:none;}
 	.txt-rt{text-align:right;}/* text align right */
@@ -110,10 +111,10 @@ html, body{
 	nav.vertical ul li{display:block;}/* vertical menu */
 	nav.horizontal ul li{
 		display: inline-block;
-		
 		}/* horizontal menu */
 	img{max-width:100%;}
 /*-- //Reset-Code --*/
+
 
 
 
@@ -139,16 +140,19 @@ html, body{
     padding: 15px 0px;
     margin: 0 auto;
     text-align: center;
-	background: grey;
+	background: white;
 
 }
 
 .resp-tabs-list {
   box-shadow:
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086)
+  0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+  0 -6.7px 5.3px rgba(0, 0, 0, 0.038),
+  0 -12.5px 10px rgba(0, 0, 0, 0.026),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.132),
+  0 -22.3px 17.9px rgba(0, 0, 0, 0.032),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.046),
+  0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .resp-tab-item {
@@ -168,17 +172,17 @@ html, body{
     transition: all 0.3s;
     text-transform: uppercase;
     margin: 0 1.2em 0;
-	color: silver;
+	color: black;
 	padding:7px 15px;
 }
 
 
 .resp-tab-item:hover{
-	color: black;
+	color: grey;
 }
 
 .resp-tab-active {
-	color:#fff;	
+	color:red;	
 }
 .resp-tabs-container {
 	padding: 0px;
@@ -196,19 +200,19 @@ h2.resp-accordion {
    display: block;
 }
 form {
-    background-image:  linear-gradient(rgb(244, 244, 244) 0px, rgb(207, 207, 205) 100%);
+    background: white;
     border-radius: 0px 0px 20px 20px;
     padding: 25px;
 }
 
 form {
   box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
   0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
+  0 22.3px 17.9px rgba(0, 0, 0, 0.032),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.046),
+  0 100px 80px rgba(0, 0, 0, 0.002)
 }
 
 
@@ -317,7 +321,7 @@ input[type="submit"] {
 	font-family: Lexend Deca;
     font-size: 14px;
     color: #fff;
-    background:blue;
+    background: #3283B8;
     border: none;
     border-radius: 13px;
     outline: none;
@@ -601,7 +605,16 @@ form.blackbg{
 /*-- //responsive--*/
 
 #div2{
+	background-color: white;
 	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+#div3{
+	background-color: #1B262C;
+	height: 60vh;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
