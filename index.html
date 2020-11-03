@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AirLine Ticket and Management System | SE</title>
+	<title>Flight Ticket Booking a Flat Responsive Widget Template :: w3layouts</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -10,6 +10,7 @@
 <body>
 
 <section id="mainSec">
+
 	<div class="menu">
 		<ul>
 			<li><a href="#">BOOK</a></li>
@@ -30,7 +31,7 @@
 	</div>
 </section>
 <section id="div1">
-
+</section>
 	<section id="booking">
 	<div class="main-agileinfo">
 		<div class="sap_tabs">			
@@ -234,9 +235,14 @@
 			</div>
 		</div>
 	</div>
+
 </section>
-</section>
+
 <section id="div2">
+	
+</section>
+
+<section id="div3">
 	
 </section>
 	<!--script for portfolio-->
@@ -276,37 +282,37 @@
 								<!--//quantity-->
 						<!--load more-->
 								<script>
-	$(document).ready(function () {
-		size_li = $("#myList li").size();
-		x=1;
-		$('#myList li:lt('+x+')').show();
-		$('#loadMore').click(function () {
-			x= (x+1 <= size_li) ? x+1 : size_li;
-			$('#myList li:lt('+x+')').show();
-		});
+								$(document).ready(function () {
+									size_li = $("#myList li").size();
+									x=1;
+									$('#myList li:lt('+x+')').show();
+									$('#loadMore').click(function () {
+										x= (x+1 <= size_li) ? x+1 : size_li;
+										$('#myList li:lt('+x+')').show();
+									});
 
 
-		$('#showLess').click(function () {
-			x=(x-1<0) ? 1 : x-1;
-			$('#myList li').not(':lt('+x+')').hide();
-		});
-	});
+									$('#showLess').click(function () {
+										x=(x-1<0) ? 1 : x-1;
+										$('#myList li').not(':lt('+x+')').hide();
+									});
+								});
 
-	$(document).ready(function () {
-		size_li = $("#myList li").size();
-		x=1;
-		$('#myList li:lt('+x+')').show();
-		$('#loadMore1').click(function () {
-			x= (x+2 <= size_li) ? x+2 : size_li;
-			$('#myList li:lt('+x+')').show();
-		});
+								$(document).ready(function () {
+									size_li = $("#myList li").size();
+									x=1;
+									$('#myList li:lt('+x+')').show();
+									$('#loadMore1').click(function () {
+										x= (x+2 <= size_li) ? x+2 : size_li;
+										$('#myList li:lt('+x+')').show();
+									});
 
 
-		$('#showLess1').click(function () {
-			x=(x-1<0) ? 1 : x-1;
-			$('#myList li').not(':lt('+x+')').hide();
-		});
-	});
+									$('#showLess1').click(function () {
+										x=(x-1<0) ? 1 : x-1;
+										$('#myList li').not(':lt('+x+')').hide();
+									});
+								});
 
 </script>
 
