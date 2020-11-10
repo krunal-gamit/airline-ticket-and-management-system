@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Flight Ticket Booking a Flat Responsive Widget Template :: w3layouts</title>
+	<title>AirLine Ticket Management System | SE Project</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		
+	<link rel="shortcut icon" href="./img/icon.png">
 </head>
 <body>
 
@@ -13,24 +13,33 @@
 
 	<div class="menu">
 		<ul>
-			<li><a href="#">BOOK</a></li>
+			<img src="./img/logo.png">
+			<span id="one">
+			<li class="active" ><a href="#">BOOK</a></li>
 			<li><a href="#">FLIGHT STATUS</a></li>
 			<li><a href="#">MY TRIPS</a></li>
 			<li><a href="#">CHECK-IN</a></li>
-			<div class="account">
-				<div id="logIn">
-					<li><a href="#">LogIn</a></li>
-				</div>
-				<li><a href="#">SignUp</a></li>
-			</div>
-			<div class="help">
-				<li><a href="#">Need Help?</a></li>
-				<li><a href="#">Contact US</a></li>
-			</div>
+			<span id="two">
+			<li><a href="#">Need Help?</a></li>
+			<li><a href="#">Contact US</a></li>
+			</span>
+			<li><a href="#">SignUp</a></li>
+			<span id="login">
+			<li><a href="#">LogIn</a></li>
+			</span>
+			</span>
 		</ul>
 	</div>
 </section>
 <section id="div1">
+	<div class="title">
+		<span>EXPLORE WHERE<br>WE CAN TAKE YOU.</span>
+	</div>
+	<div class="cardTitle">
+		<a href="#">
+			When you're ready to travel, we're ready to take you. Start planning with our current list of destinations. >
+		</a>
+	</div>
 </section>
 	<section id="booking">
 	<div class="main-agileinfo">
@@ -239,10 +248,34 @@
 </section>
 
 <section id="div2">
+	<div class="header">
+		<span>THE AIRLINE CUSTOMER EXPERIENCE</span>
+		<p>Supporting You Through Your Travel Journey</p>
+	</div>
+
+
+	<div class="container">
+	
+			<div class="columnCard">
+				<img src="./img/calendar.png" style="padding-left: 50%;">
+				<div id="text" style="padding-left: 20%;"><h3>CAN I CANCEL?CHANGE MY FLIGHT</h3><br>We understand you have questions. Learn more about our simplified waivers and find out if your upcoming flight qualifies.</div>
+			</div>
+			<div class="columnCard">
+				<img src="./img/ticket.png" style="padding-left: 30%;">
+				<div id="text" style="padding-left: 20%;"><h3>HOW DO I CHANGE MY FLIGHT?</h3><br>If your trip has been impacted by coronavirus, it's easy to cancel or change your flights. Learn how to modify your trip and rebook using eCredits with our step-by-step guides.</div>
+			</div>
+			<div class="columnCard">
+				<img src="./img/notification.png" style="width: 120px; margin-top: 40px; padding-bottom: 92px;">
+				<div id="text"><h3>WHAT ARE THE LATEST TRAVEL UPDATES?</h3><br>Information is more important than ever. We pledge to share updates with you as quickly as possible, with full transparency and, as always, with your safety foremost in mind.
+				</div>		
+			</div>
+	
+	</div>
+</section>
+<section id="div3">
 	
 </section>
-
-<section id="div3">
+<section id="div4">
 	
 </section>
 	<!--script for portfolio-->
@@ -285,6 +318,7 @@
 								$(document).ready(function () {
 									size_li = $("#myList li").size();
 									x=1;
+									
 									$('#myList li:lt('+x+')').show();
 									$('#loadMore').click(function () {
 										x= (x+1 <= size_li) ? x+1 : size_li;
@@ -313,6 +347,8 @@
 										$('#myList li').not(':lt('+x+')').hide();
 									});
 								});
+
+								
 
 </script>
 
