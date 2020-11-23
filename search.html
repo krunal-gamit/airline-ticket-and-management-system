@@ -1,0 +1,253 @@
+<script src="Javascript/search.js"></script>
+
+<style>
+
+    *{
+        font-family: Lexend Deca;
+    }
+
+
+
+    #form {
+        position: static;
+        top:0;
+        left: 0px;
+        list-style: none;
+    border-radius: 20px 20px 0 0;
+    padding: 15px 0px;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+        border-width: 15px;
+        border-radius: 25px;
+        margin: 0 auto;
+        width: 90vw;
+        max-width: 100%;
+        padding: 35px;
+    }
+
+#form{
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.004),
+  0 -6.7px 5.3px rgba(0, 0, 0, 0.008),
+  0 -12.5px 10px rgba(0, 0, 0, 0.006),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 -22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.036)
+
+}
+
+    .space {
+        width: 5vw;
+    }
+    
+    .trip_type_labels {
+        font-weight: 800;
+        font-size: 14.5px;
+        margin-right: 25px;
+    }
+    
+    .labels {
+        font-weight: 800;
+    }
+    
+    .fl_dropbox {
+        margin-top: 10px;
+        width: 15vw;
+        height: 35px;
+    }
+
+    .dates {
+        margin-top: 10px;
+        width: 8.5vw;
+        height: 35px;
+    }
+
+    .passengers {
+        margin-top: 10px;
+        height: 35px;
+    }
+    
+    #trip_type_div {
+        display: flex;
+    }
+
+    #src_des_div {
+        display: flex;
+    }
+
+    #dates_div {
+        display: flex;
+    }
+
+    #passengers_div {
+        display: flex;
+    }
+    
+    #mid_bar {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+
+    #submit_div {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #book_now_div {
+        text-align: center;
+    }
+    
+    #submit_button {
+        border: 0;
+        border-radius: 15px;
+        margin-top: 25px;
+        padding: 10px;
+        font-weight: 400;
+        color: white;
+        background-image: linear-gradient(45deg, #96c93d, #7B920A);
+        transition-duration: 0.2s;
+    }
+
+    #book_now {
+        border: 0;
+        border-radius: 15px;
+        padding: 10px;
+        font-weight: 400;
+        color: white;
+        background-image: linear-gradient(45deg, #96c93d, #7B920A);
+        transition-duration: 0.2s;
+    }
+
+    #submit_button:hover, #book_now:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+
+    #submit_button:disabled {
+        background-image: linear-gradient(45deg, darkgrey, darkgrey);
+        font-weight: 400;
+    }
+
+    #submit_button:disabled:hover {
+        background-image: radial-gradient( circle 738px at 7.4% 47.9%,  rgba(225,63,79,1) 0%, rgba(245,61,79,1) 47%, rgba(247,161,175,1) 90.2% );
+        transform: scale(1);
+    }
+
+    #passengers_info {
+        color: white;
+        border-width: 0px;
+        border-radius: 25px;
+        margin: 0 auto;
+        width: 65vw;
+        padding: 25px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pass_info {
+        display: none;
+    }
+
+    .pass_info_ind {
+        background-image: linear-gradient( 101.2deg,  rgba(247,0,0,1) -21.9%, rgba(164,50,237,1) 92.2% );
+        display: flex;
+        flex-direction: column;
+        width: 45vw;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        border-width: 0px;
+        border-radius: 25px;
+        padding: 25px;
+        padding-bottom: 15px;
+    }
+
+    .pass_inputs {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 25vw;
+        height: 35px;
+    }
+</style>
+
+<div id="form">
+    <div id="trip_type_div">
+        <label for="trip_type_ow" class="trip_type_labels"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> ONE WAY</label>
+        <label for="trip_type_ret" class="trip_type_labels"> <input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> RETURN</label>
+    </div>
+
+    <br>
+
+    <div id="mid_bar">
+        <div id="src_des_div">
+            <label for="src" id="src_label" class="labels">FROM<br>
+                <select id="src" class="fl_dropbox" required>
+                    <option disabled selected value="1">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+            
+            <div class="space"></div>
+
+            <label for="des" id="des_label" class="labels">TO<br>
+                <select id="des" class="fl_dropbox" required>
+                    <option disabled selected value="2">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="passengers_div">
+            <label for="passengers" class="labels">PASSENGERS<br>
+                <select id="passengers" class="passengers" required>
+                    <option value="1" selected>One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="dates_div">
+            <label for="depart_date" id="depart_date_label" class="labels">DEPART DATE<br><input type="date" id="depart_date" class="dates" required></label>
+            <div class="space"></div>
+            <label for="return_date" id="return_date_label" class="labels">RETURN DATE<br><input type="date" id="return_date" class="dates" required></label>
+        </div>
+    </div>
+    
+    <br>
+    
+    <div id="submit_div">
+        <button id="submit_button">search.</button>
+    </div>
+</div>
+
+<div class="result"></div><br>
+<h3 style='text-align: center;' class='pass_info'>passenger information.</h3>
+<div id="passengers_info" class='pass_info'></div>
+
+<div class="book_now"></div>

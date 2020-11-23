@@ -1,0 +1,244 @@
+<script>
+    $(document).ready(function() {
+        $(".fl_dropbox").change(function() {
+        var selected_src = $("#src_dropbox option:selected").val();
+        var selected_des = $("#des_dropbox option:selected").val();
+        var thisID = $(this).prop("id");
+        $(".fl_dropbox option").each(function() {
+            $(this).prop("disabled", false);
+        });
+        $("#src_dropbox").each(function() {
+                $("option[value='" + selected_des + "']", $(this)).prop("disabled", true);
+            });
+        $("#des_dropbox").each(function() {
+                $("option[value='" + selected_src + "']", $(this)).prop("disabled", true);
+            });
+        });
+
+        date1 = $("#depart_date").val();
+        date2 = $("#arrive_date").val();
+        document.getElementById("submit").disabled = true; 
+        
+        $(".dates").change(function() {
+            date1 = $("#depart_date").val();
+            date2 = $("#arrive_date").val();
+            if(Date.parse(date1) > Date.parse(date2)) {
+                alert("Invalid dates. Please try again.");
+                document.getElementById("submit").disabled = true; 
+            } else {
+                document.getElementById("submit").disabled = false; 
+            }
+        });
+
+        $("#submit").click(function() {
+            $.post ("add_flights.php",
+            {
+                src: $("#src_dropbox").val(),
+                des: $("#des_dropbox").val(),
+                depart_date: $("#depart_date").val(),
+                arrive_date: $("#arrive_date").val(),
+                depart_time: $("#depart_time").val(),
+                arrive_time: $("#arrive_time").val(),
+                airplane_name: $("#airplane_name").val(),
+                seats_no: $("#seats_no").val(),
+                amount: $("#amount").val()
+            },
+            function(data) {
+                if (data == 1) {
+                    $("#result").html("FLIGHT ADDED SUCCESSFULLY.")
+                } else {
+                    $("#result").html(data);
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    *{
+        font-family: Lexend Deca;
+        color: black;
+    }
+
+    #add_flights_container {
+        margin: 0 auto;
+        position: relative;
+        top: 240px;
+        background-image: radial-gradient(circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
+        color: white;
+        border-radius: 30px;
+        padding: 25px;
+        width: 80vw;
+    }
+
+    .labels {
+        font-weight: 800;
+        color: white;
+    }
+
+    .space {
+        width: 5vw;
+    }
+
+    .big_space {
+        width: 15vw;
+    }
+
+    .custom_space {
+        width: 10.25vw;
+    }
+
+    #src_des_div {
+        display: flex;
+    }
+
+    .fl_dropbox {
+        margin-top: 10px;
+        width: 15vw;
+        height: 35px;
+    }
+
+    #dates_div {
+        display: flex;
+    }
+
+    .dates {
+        margin-top: 10px;
+        height: 35px;
+    }
+
+    #times_div {
+        display: flex;
+    }
+
+    .times {
+        margin-top: 10px;
+        height: 35px;
+    }
+
+    #datetime_div {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    #misc_info_div {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .misc_info {
+        margin-top: 10px;
+        width: 14vw;
+        height: 35px;
+    }
+
+    .price {
+        margin-top: 10px;
+        width: 10vw;
+        height: 35px;
+    }
+
+    #submit {
+        background-color: transparent;
+        border: 0px;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+        position: absolute;
+        right: 25px;
+        bottom: 22.5px;
+        transition-duration: 0.2s;
+    }
+    
+    #submit:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+
+    #submit:disabled {
+        font-weight: 600;
+        transform: scale(1);
+        color: #606060;
+    }
+
+    #result {
+        font-weight: 800;
+        margin-top: 30px;
+    }
+</style>
+
+<div id="add_flights_container">
+    <div id="src_des_div">
+        <label for="src_dropbox" id="src_label" class="labels">FROM<br>
+            <select id="src_dropbox" class="fl_dropbox" required>
+                <option disabled selected value="1">Choose city...</option>
+                <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                <option name="COK" id="COK" value="Kochi">Kochi</option>
+                <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+            </select>
+        </label>
+
+        <div class="space"></div>
+
+        <label for="des" id="des_label" class="labels">TO<br>
+            <select name="des" id="des_dropbox" class="fl_dropbox" required>
+                <option disabled selected value="2">Choose city...</option>
+                <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                <option name="COK" id="COK" value="Kochi">Kochi</option>
+                <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+            </select>
+        </label>
+    </div>    
+    
+    <br>
+
+    <div id="datetime_div">
+        <div id="dates_div">
+            <label for="depart_date" id="depart_date_label" class="labels">DEPARTURE DATE<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
+            <div class="custom_space"></div>
+            <label for="arrive_date" id="arrive_date_label" class="labels">ARRIVAL DATE<br><input type="date" id="arrive_date" name="arrive_date" class="dates" required></label>
+        </div>
+        
+        <div class="big_space"></div>
+
+        <div id="times_div">
+            <label for="depart_time" id="depart_time_label" class="labels">DEPARTURE TIME<br><input type="time" id="depart_time" name="depart_time" class="times" required></label>
+            <div class="custom_space"></div>
+            <label for="arrive_time" id="arrive_time_label" class="labels">ARRIVAL TIME<br><input type="time" id="arrive_time" name="arrive_time" class="times" required></label>
+        </div>
+    </div>
+
+    <br>
+
+    <div id="misc_info_div">
+        <label for="airplane_name" id="airplane_name_label" class="labels">AIRPLANE NAME<br><input type="text" name="airplane_name" id="airplane_name" class="misc_info"></label>
+        <div class="space"></div>
+        <label for="seats_no" id="seats_no_label" class="labels">NUMBER OF SEATS<br><input type="number" name="seats_no" id="seats_no" class="misc_info"></label>
+    </div>
+    
+    <br>
+    
+    <label for="amount" id="amount_label" class="labels">PRICE (IN ₹)<br><input type="number" name="amount" id="amount" class="price"></label>
+
+    <button id="submit">ADD NEW FLIGHT</button>
+
+    <div id="result"></div>
+</div>

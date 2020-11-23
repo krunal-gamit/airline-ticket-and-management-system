@@ -1,0 +1,156 @@
+<script src="Javascript/payment.js"></script>
+
+<style>
+    *{
+        font-family: Lexend Deca;
+        color: black;
+    }
+
+    #payment_container {
+        background-image: linear-gradient( 111.4deg,  rgba(55,168,192,1) -0.2%, rgba(103,187,125,1) 100.2% );
+        border: 0px;
+        border-radius: 25px;
+        padding: 25px;
+        padding-bottom: 10px;
+        margin: 0 auto;
+        width: 80vw;
+        margin-top: 75px;
+
+    }
+
+    .labels {
+        font-weight: 800;
+    }
+
+    .inputs {
+        color: black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 15vw;
+        height: 35px;
+    }
+
+    .cvv_dates {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        width: 45px;
+        height: 35px;
+    }
+
+    #mode_info, #back_to_search_div {
+        display: none;
+    }
+
+    #cards {
+        display: none;
+        flex-direction: column;
+    }
+    
+    #exp_date {
+        display: inherit;
+        flex-direction: row;
+    }
+
+    #ewallets {
+        display: none;
+        flex-direction: column;
+    }
+
+    #net_banking {
+        display: none;
+        flex-direction: column;
+    }
+
+    #pay_button_div, #cancel_button_div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    #pay, #search, #cancel {
+        background-color: transparent;
+        border-width: 0px;
+        font-weight: 600;
+        font-size: 17.5px;
+        transition-duration: 0.2s;
+        color: white;
+        margin-bottom: 10px;
+        outline: none;
+    }
+
+    #pay:hover, #search:hover, #cancel:hover {
+        transform: scale(1.05);
+        font-weight: 900;
+    }
+
+    #nav_buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+</style>
+
+<div id="payment_container">
+    <label for="mode" id="payment_mode_label" class="labels">PAYMENT MODE<br>
+        <select name="mode" id="mode" class="inputs">
+            <option value="" selected disabled>Select payment mode...</option>
+            <option value="credit card">Credit card</option>
+            <option value="debit card">Debit card</option>
+            <option value="netbanking">Net Banking</option>
+            <option value="ewallets">UPI</option>
+        </select>
+    </label>
+
+    <br>
+
+    <p><b>AMOUNT:</b> ₹. <span name="amount"></span></p>
+    <div id="mode_info">
+        <br>
+
+        <div id="cards">
+            <label for="cardholder_name" id="cardholder_name_label" class="labels">CARDHOLDER'S NAME<br>
+                <input type="text" id="cardholder_name" class="inputs" required/>
+            </label>
+            
+            <label for="card_number" id="card_number_label" class="labels">CARD NUMBER<br>
+                <input type="text" id="card_number" class="inputs" required/>
+            </label>
+
+            <label for="cvv" id="cvv_label" class="labels">CVV<br>
+                <input type="number" id="cvv" class="cvv_dates" min="100" max="999"required/>
+            </label>
+
+            <label for="cvv" id="cvv_label" class="labels">EXPIRATION DATE (MM/YY)<br>
+                <div id="exp_date">
+                    <input type="number" id="mm" class="cvv_dates" min="1" max="12" required/>
+                    <input type="number" id="yy" class="cvv_dates" min="20" max="30" required/>
+                </div>
+            </label>
+        </div>
+        
+        <div id="net_banking">
+            <label for="nb_username" id="nb_username_label" class="labels">USERNAME<br>
+                <input type="text" id="nb_username" class="inputs" required/>
+            </label>
+            
+            <label for="nb_password" id="nb_password_label" class="labels">PASSWORD<br>
+                <input type="text" id="nb_password" class="inputs" required/>
+            </label>
+        </div>
+        
+        <div id="ewallets">
+            <label for="upi_id" id="cardholder_name_label" class="labels">UPI ID<br>
+                <input type="text" id="upi_id" class="inputs" required/>
+            </label>
+        </div>
+
+        <div id="nav_buttons">
+            <div id="cancel_button_div"><button name="cancel" value="cancel" id='cancel'>CANCEL</button></div>
+            <div id="pay_button_div"><button name="pay" value="pay" id='pay'>PAY</button></div>
+        </div>
+    </div>
+</div>
+
+<div class="result"></div>
+<div id="back_to_search_div" style='text-align: center;'><button id="search">BACK TO SEARCH</div>

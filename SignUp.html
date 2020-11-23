@@ -1,0 +1,88 @@
+<script src="Javascript/SignUp.js"></script>
+
+<style>
+    #signup_page {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90vw;
+        max-width: 40%;
+        padding: 20px;
+        border-width: 15px;
+        border-radius: 25px;
+        background-color: white;
+        align-items: center;
+    }
+    
+    #signup_page {
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.004),
+  0 -6.7px 5.3px rgba(0, 0, 0, 0.008),
+  0 -12.5px 10px rgba(0, 0, 0, 0.006),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 -22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.036)
+
+}
+
+    #inputs {
+        display: flex;
+        flex-direction: column;
+        color:black;
+        font-weight: 800;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    #buttons {
+        display: flex;
+        margin-top: 35px;
+        margin-left: 20px;
+    }
+    
+    button {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border-width: 0px;
+        font-weight: 600;
+        font-size: 17.5px;
+        transition-duration: 0.2s;
+        color: black;
+        margin-right: 15px;
+        outline: none;
+    }
+    
+    button:hover {
+        color: #e51937;
+        font-weight: 900;
+    }
+    
+    label {
+        font-family: Lexend Deca;
+        color: black;
+        font-weight: 800;
+        font-size: 14.5px;
+        margin-bottom: 10px;
+    }
+    
+    .signup_ {
+        margin-top: 10px;
+        height: 35px;
+    }
+</style>
+
+<div id="signup_page">
+    <div id="inputs">
+        <label for="username">USERNAME<br>
+            <input type="text" name="username" value="" id="username" class="signup_"></label><br>
+        <label for="password">PASSWORD<br>
+            <input type="password" name="password" value="" id="password" class="signup_"></label><br>
+        <label for="email">E-MAIL<br>
+            <input type="email" name="email_id" value="" id="email_id" class="signup_"></label><br>
+    </div>
+    <div id="buttons">
+        <button type="button" name="submit" value="submit" id="submit">SIGN UP</button><br>
+        <button type="button" name="back" value="back" id="back">BACK TO SEARCH</button>
+    </div>
+</div>
+<div class="result"></div>

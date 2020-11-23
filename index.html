@@ -1,356 +1,395 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>AirLine Ticket Management System | SE Project</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="./img/icon.png">
-</head>
-<body>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>AirLine Ticket Management System | SE Project</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<section id="mainSec">
+    <link rel="shortcut icon" href="./img/icon.png">
 
-	<div class="menu">
-		<ul>
-			<img src="./img/logo.png">
-			<span id="one">
-			<li class="active" ><a href="#">BOOK</a></li>
-			<li><a href="#">FLIGHT STATUS</a></li>
-			<li><a href="#">MY TRIPS</a></li>
-			<li><a href="#">CHECK-IN</a></li>
-			<span id="two">
-			<li><a href="#">Need Help?</a></li>
-			<li><a href="#">Contact US</a></li>
-			</span>
-			<li><a href="#">SignUp</a></li>
-			<span id="login">
-			<li><a href="#">LogIn</a></li>
-			</span>
-			</span>
-		</ul>
-	</div>
-</section>
-<section id="div1">
-	<div class="title">
-		<span>EXPLORE WHERE<br>WE CAN TAKE YOU.</span>
-	</div>
-	<div class="cardTitle">
-		<a href="#">
-			When you're ready to travel, we're ready to take you. Start planning with our current list of destinations. >
-		</a>
-	</div>
-</section>
-	<section id="booking">
-	<div class="main-agileinfo">
-		<div class="sap_tabs">			
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li class="resp-tab-item"><span>Round Trip</span></li>
-					<li class="resp-tab-item"><span>One way</span></li>
-					<li class="resp-tab-item"><span>Multi city</span></li>				
-				</ul>	
-				<div class="clearfix"> </div>	
-				<div class="resp-tabs-container">
-					<div class="tab-1 resp-tab-content roundtrip">
-						<form action="#" method="post">
-							<div class="from">
-								<h3>From</h3>
-								<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-							</div>
-							<div class="to">
-								<h3>To</h3>
-								<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-							</div>
-							<div class="clear"></div>
-							<div class="date">
-								<div class="depart">
-									<h3>Depart</h3>
-									<input  id="datepicker" name="Text" type="text" value="dd/mm/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-									
-								</div>
-								<div class="return">
-									<h3>Return</h3>
-									<input  id="datepicker1" name="Text" type="text" value="dd/mm/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-									
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="class">
-								<h3>Class</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="Economy">Economy</option>  
-									<option value="Premium">Premium Economy</option>   
-									<option value="Business">Business</option>   
-									<option value="First">First class</option>   						
-								</select>
-
-							</div>
-							<div class="clear"></div>
-							<div class="numofppl">
-								<h3>Passengers</h3>
-								<select id="w3_country1" onchange="change(this.value)" class="frm-field required">
-									<option value="1">1 Passenger</option>  
-									<option value="2">2 Passengers</option>   
-									<option value="3">3 Passengers</option>   
-									<option value="4">4 Passengers</option>   			
-									<option value="5">5 Passengers</option>  
-									<option value="6">6 Passengers</option>   
-									<option value="7">7 Passengers</option>   
-									<option value="8">8 Passengers</option>   			
-									<option value="9">9 Passengers</option>			
-								</select>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
-						</form>						
-					</div>		
-					<div class="tab-1 resp-tab-content oneway">
-						<form action="#" method="post">
-							<div class="from">
-								<h3>From</h3>
-								<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-							</div>
-							<div class="to">
-								<h3>To</h3>
-								<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-							</div>
-							<div class="clear"></div>
-							<div class="date">
-								<div class="depart">
-									<h3>Depart</h3>
-									<input class="date" id="datepicker2" name="Text" type="text" value="dd/mm/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-									
-								</div>
-							</div>
-							<div class="class">
-								<h3>Class</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="Economy">Economy</option>  
-									<option value="Premium">Premium Economy</option>   
-									<option value="Business">Business</option>   
-									<option value="First">First class</option>   						
-								</select>
-
-							</div>
-							<div class="clear"></div>
-							<div class="numofppl">
-								<h3>Passengers</h3>
-								<select id="w3_country1" onchange="change(this.value)" class="frm-field required">
-									<option value="1">1 Passenger</option>  
-									<option value="2">2 Passengers</option>   
-									<option value="3">3 Passengers</option>   
-									<option value="4">4 Passengers</option>   			
-									<option value="5">5 Passengers</option>  
-									<option value="6">6 Passengers</option>   
-									<option value="7">7 Passengers</option>   
-									<option value="8">8 Passengers</option>   			
-									<option value="9">9 Passengers</option>			
-								</select>
-							</div>
-							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
-						</form>	
-								
-					</div>
-					<div class="tab-1 resp-tab-content multicity">
-						
-									<form action="#" method="post">
-										<div class="from">
-											<h3>From</h3>
-											<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-										</div>
-										<div class="to">
-											<h3>To</h3>
-											<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-										</div>
-										<div class="clear"></div>
-										<div class="date">
-											<div class="depart">
-												<h3>Depart</h3>
-												<input class="date" id="datepicker3" name="Text" type="text" value="dd/mm/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-												
-											</div>
-										</div>
-										<div class="class">
-											<h3>Class</h3>
-											<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-												<option value="null">Economy</option>  
-												<option value="null">Premium Economy</option>   
-												<option value="null">Business</option>   
-												<option value="null">First class</option>   						
-											</select>
-										</div>
-										<div class="clear"></div>
-										<div id="loadMore">Add City+</div>
-										<div id="showLess">Remove</div>
-									</form>
-				<div class="load_more">	
-						<ul id="myList">
-							<li>
-			
-								<div class="l_g spcl">
-									<form action="#" method="post" class="blackbg">
-										<div class="from">
-											<h3>From</h3>
-											<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-										</div>
-										<div class="to">
-											<h3>To</h3>
-											<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-										</div>
-										<div class="clear"></div>
-										<div class="date">
-											<div class="depart">
-												<h3>Depart</h3>
-												<input class="date" id="datepicker" name="Text" type="text" value="dd/mm/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-											</div>
-										</div>
-										<div class="clear"></div>
-									</form>
-					
-								</div>
-								
-							</li>
-							<form action="#" method="post">
-							<div class="numofppl">
-								<h3>Passengers</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="1">1 Passenger</option>  
-									<option value="2">2 Passengers</option>   
-									<option value="3">3 Passengers</option>   
-									<option value="4">4 Passengers</option>   			
-									<option value="5">5 Passengers</option>  
-									<option value="6">6 Passengers</option>   
-									<option value="7">7 Passengers</option>   
-									<option value="8">8 Passengers</option>   			
-									<option value="9">9 Passengers</option>			
-								</select>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-
-							<div id="loadMore1">Add City+</div>
-							<div id="showLess1">Remove</div>
-							
-							<input type="submit" value="Search Flights">
-							</form>
-						</ul>
-					</div>
-					</div>
-		
-				</div>						
-			</div>
-		</div>
-	</div>
-
-</section>
-
-<section id="div2">
-	<div class="header">
-		<span>THE AIRLINE CUSTOMER EXPERIENCE</span>
-		<p>Supporting You Through Your Travel Journey</p>
-	</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="Javascript/index.js"></script>
+        <script src="Javascript/uni.js"></script>
+        <style>
 
 
-	<div class="container">
-	
-			<div class="columnCard">
-				<img src="./img/calendar.png" style="padding-left: 50%;">
-				<div id="text" style="padding-left: 20%;"><h3>CAN I CANCEL?CHANGE MY FLIGHT</h3><br>We understand you have questions. Learn more about our simplified waivers and find out if your upcoming flight qualifies.</div>
-			</div>
-			<div class="columnCard">
-				<img src="./img/ticket.png" style="padding-left: 30%;">
-				<div id="text" style="padding-left: 20%;"><h3>HOW DO I CHANGE MY FLIGHT?</h3><br>If your trip has been impacted by coronavirus, it's easy to cancel or change your flights. Learn how to modify your trip and rebook using eCredits with our step-by-step guides.</div>
-			</div>
-			<div class="columnCard">
-				<img src="./img/notification.png" style="width: 120px; margin-top: 40px; padding-bottom: 92px;">
-				<div id="text"><h3>WHAT ARE THE LATEST TRAVEL UPDATES?</h3><br>Information is more important than ever. We pledge to share updates with you as quickly as possible, with full transparency and, as always, with your safety foremost in mind.
-				</div>		
-			</div>
-	
-	</div>
+html, body{
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: 100%;
+    font-family: "Raleway, Lexend Deca" !important;
+    background: #fff !important;
+}
+     
+      
+.menu{
+    background-color: #1B262C;
+    height: 8vh;
+    font-family: Raleway;
+    color: white;
+    
+}
+
+.menu ul{
+    width: 800px;
+    list-style-type: none;
+    margin-top: 30px;
+    float: none;
+    position: absolute;
+    left: 54%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media (max-width: 700px) {
+    .menu ul{
+        width: 400px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .menu ul{
+        width: 900px;
+    }
+}
+
+.menu ul img{
+    width: 110px;
+    padding-right: 40px;
+    align-content: center;
+    position: unset;
+
+}
+
+
+.menu ul li{
+    font-weight: bold;
+    display: inline-block;
+}
+
+.menu ul li a{
+    font-size: 12px;
+    padding-right: 10px;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: 0.1s ease;
+}
+
+.menu ul li a:hover{
+    color: #C0C0C0;
+}
+
+
+
+
+#mainSec{
+    top:0;
+    height: 7vh;
+    width: 100%;
+    background-color: white;
+    background-size: cover;
+    background-attachment: local;
+    position: fixed;
+    z-index: 99;
+}
+
+
+.active{
+
+    border-bottom: solid #e01933; 
+
+}
+
+#login{
+    background: #e51937;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    text-align: none;
+}
+
+#login li a:hover{
+    cursor: pointer;
+    color: white;
+}
+
+#one{
+    padding-right: 10px;
+}
+
+#one li a{
+    font-weight: bolder;
+    
+}
+
+#two li a{
+    font-weight: 600;
+    
+}
+
+           
+
+            div.TopBar button {
+                margin: 0 1px;
+                font-family: Raleway;
+                background-color: #1B262C;
+                border-width: 0px;
+                font-size: 12px;
+                font-weight: bolder;
+                padding-right: 10px;
+                text-align: center;
+                color: inherit;
+                transition-duration: 0.2s;
+                color: white;
+            }
+
+
+            div.TopBar #display_username {
+                font-weight: 600;
+                margin: 0 10px;
+            }
+
+            .admin {
+                display: none;
+            }
+
+            .back_srch {
+                display: none;
+            }
+
+#div1{
+    background-image:  linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('./img/city.jpg');
+    height: 40vh;
+    /*background: #BBE1FA;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    padding-top: 200px;
+    opacity: 1;
+}
+
+.title{
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -50px;
+    z-index: 0;
+}
+
+.cardTitle{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 150px;
+    width: 450px;   
+    z-index: 0;
+}
+
+.cardTitle a{
+    text-decoration: none;
+    font-family: Bahnschrift !important;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+}
+
+
+#div1 .title span{
+    font-family: Codec Warm Trial !important;
+    font-weight: 1000;
+    font-size: 40px;
+    color: #fff;
+
+}
+
+.title span:hover, .cardTitle a:hover{
+    text-decoration: underline;
+}
+
+#booking{
+    margin-top: -15rem;
+    position: relative;
+}
+
+
+#div2{
+    background-color: white;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 1;
+}
+
+#div2 .header{
+    margin-top: 100px;
+    text-align: center;
+    color: #0b1f66;
+}
+#div2 .header span{
+    font-weight: bold;
+    font-family: Bahnschrift !important;
+    
+}
+
+#div2 .header p{
+    font-family: Raleway; 
+    font-weight: 4300;
+    font-size: 3.25rem;
+}
+
+
+.columnCard {
+  box-sizing: border-box;
+  float: left;
+  width: 33.33%;
+  padding: 60px;
+  height: 300px;
+}
+
+#div2 .container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#div2 .columnCard img{
+    padding-left: 50px;
+    padding-bottom: 100px;
+    width: 170px;
+}
+
+
+
+.columnCard #text{
+    font-family: Bahnschrift !important;
+    font-weight: lighter;
+    color:  #0b1f66;
+    padding-left: 50px;
+    padding-right: 0px;
+
+}
+
+.columnCard #text h3{
+    color:  #0b1f66;
+}
+
+#div3{
+    background-color: #fff;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#div4{
+    background-color: #1B262C;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+        </style>
+    </head>
+    <body>
+    
+        <section id="mainSec">
+        <div class="TopBar">
+            <div class="menu">
+             <ul>
+                <img src="./img/logo.png">
+                <span id="one">
+                <li class="" name="back_srch" ><a href="#">BOOK</a></li>
+                <li><a href="#" name="back_srch">FLIGHT STATUS</a></li>
+                <span id="two">
+                <li><a href="#">Need Help?</a></li>
+                <li><a href="#">Contact US</a></li>
+                </span>
+                </span>
+            
+
+                <li><div class="bookedTickets">
+                   <button type="button" name="bookedTickets" value="bookedTickets">Booked Tickets</button>
+                </div>
+                </li>
+                
+                <li><div class="back_srch">
+                    <button type="button" name="back_srch">Back to Search</button>
+                </div></li>
+
+                <li><div class="login">
+                    <button type="button" name="login" value="login" id="login">LogIn</button>
+                </div></li> 
+
+                <li><div class="signup">
+                    <button type="button" name="signup" value="signup" id="signup">SignUp</button>
+                </div></li>
+                
+                <li><div class="admin">
+                    <button type="button" name="admin" value="admin" id="admin">ADMIN CONSOLE</button>
+                </div></li>
+                <li><div id="display_username"></div></li>
+                <li>
+                <div class="logout">
+                    <button type="button" name="logout" value="logout" id="logout">LOGOUT</button>
+                </div></li>
+            </ul>
+            </div>
+            </div>
+        </section>
+        <div id="div1" name="div1" value="div1">
+            <div class="title">
+                <span>EXPLORE WHERE<br>WE CAN TAKE YOU.</span>
+            </div>
+            <div class="cardTitle">
+                <a href="#">
+                    When you're ready to travel, we're ready to take you. Start planning with our current list of destinations. >
+                </a>
+            </div>
+        </div>
+        <section id="booking">
+        <div class="body" style="margin-top: 100px;"></div>
+        </section>
+
+        <section id="div2">
+    <div class="header">
+        <span>THE AIRLINE CUSTOMER EXPERIENCE</span>
+        <p>Supporting You Through Your Travel Journey</p>
+    </div>
+
+
+    <div class="container">
+    
+            <div class="columnCard">
+                <img src="./img/calendar.png" style="padding-left: 50%;">
+                <div id="text" style="padding-left: 20%;"><h3>CAN I CANCEL?CHANGE MY FLIGHT</h3><br>We understand you have questions. Learn more about our simplified waivers and find out if your upcoming flight qualifies.</div>
+            </div>
+            <div class="columnCard">
+                <img src="./img/ticket.png" style="padding-left: 30%;">
+                <div id="text" style="padding-left: 20%;"><h3>HOW DO I CHANGE MY FLIGHT?</h3><br>If your trip has been impacted by coronavirus, it's easy to cancel or change your flights. Learn how to modify your trip and rebook using eCredits with our step-by-step guides.</div>
+            </div>
+            <div class="columnCard">
+                <img src="./img/notification.png" style="width: 120px; margin-top: 40px; padding-bottom: 92px;">
+                <div id="text"><h3>WHAT ARE THE LATEST TRAVEL UPDATES?</h3><br>Information is more important than ever. We pledge to share updates with you as quickly as possible, with full transparency and, as always, with your safety foremost in mind.
+                </div>      
+            </div>
+    
+    </div>
 </section>
 <section id="div3">
-	
+    
 </section>
 <section id="div4">
-	
+                      
 </section>
-	<!--script for portfolio-->
-		<script src="js/jquery.min.js"> </script>
-		<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#horizontalTab').easyResponsiveTabs({
-					type: 'default', //Types: default, vertical, accordion           
-					width: 'auto', //auto or any width like 600px
-					fit: true   // 100% fit in a container
-				});
-			});		
-		</script>
-		<!--//script for portfolio-->
-				<!-- Calendar -->
-				<link rel="stylesheet" href="css/jquery-ui.css" />
-				<script src="js/jquery-ui.js"></script>
-				  <script>
-						  $(function() {
-							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker({minDate:0,dateFormat: 'dd/mm/yy'})
-						  });
-				  </script>
-			<!-- //Calendar -->
-			<!--quantity-->
-									<script>
-									$('.value-plus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
 
-									$('.value-minus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
-									</script>
-								<!--//quantity-->
-						<!--load more-->
-								<script>
-								$(document).ready(function () {
-									size_li = $("#myList li").size();
-									x=1;
-									
-									$('#myList li:lt('+x+')').show();
-									$('#loadMore').click(function () {
-										x= (x+1 <= size_li) ? x+1 : size_li;
-										$('#myList li:lt('+x+')').show();
-									});
-
-
-									$('#showLess').click(function () {
-										x=(x-1<0) ? 1 : x-1;
-										$('#myList li').not(':lt('+x+')').hide();
-									});
-								});
-
-								$(document).ready(function () {
-									size_li = $("#myList li").size();
-									x=1;
-									$('#myList li:lt('+x+')').show();
-									$('#loadMore1').click(function () {
-										x= (x+2 <= size_li) ? x+2 : size_li;
-										$('#myList li:lt('+x+')').show();
-									});
-
-
-									$('#showLess1').click(function () {
-										x=(x-1<0) ? 1 : x-1;
-										$('#myList li').not(':lt('+x+')').hide();
-									});
-								});
-
-								
-
-</script>
-
-</body>
+    </body>
 </html>
+ 

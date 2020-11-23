@@ -1,0 +1,281 @@
+<script>
+    var selectedFlights = [];
+    
+    function removeFlight(selectedFlights) {
+        $.post("remove_flights.php", 
+        {
+            flights: selectedFlights
+        },
+        
+        function(data) {
+            $("#query_result").html(data)
+        });
+    }
+    
+    $(document).ready(function() {
+        $("#search").css("display", "none");
+
+        $("#search_by").change(function() {
+            $("#search").css("display", "inherit");
+            $("#remove_div").css("display", "none");
+            $("#search").prop("disabled", false);
+            $("#result").html("");
+
+            $("#src_div").addClass("criteria");
+            $("#des_div").addClass("criteria");
+            $("#depart_date_div").addClass("criteria");
+            $("#arrive_date_div").addClass("criteria");
+
+            $("#src_div").removeClass("chosen");
+            $("#des_div").removeClass("chosen");
+            $("#depart_date_div").removeClass("chosen");
+            $("#arrive_date_div").removeClass("chosen");
+
+            var chosen = $("#search_by option:selected").val();
+            $(chosen).addClass("chosen");
+        });
+
+        $("#search").click(function() {
+            $("#remove_div").css("display", "inherit");
+            $("#result").css("display", "inherit");
+            $("#query_result").css("display", "none");
+
+            var chosen = $("#search_by option:selected").val(); 
+            var parameter = "";
+            var column = "";
+            
+            if (chosen == "#src_div") {
+                parameter = $("#src_dropbox").val();
+                column = "src";
+            } else if (chosen == "#des_div") {
+                parameter = $("#des_dropbox").val();
+                column = "des";
+            } else if (chosen == "#depart_date_div") {
+                parameter = $("#depart_date").val();
+                column = "depart_date";
+            } else if (chosen == "#arrive_date_div") {
+                parameter = $("#arrive_date").val();
+                column = "arrive_date";
+            }
+            
+            $.post("search_flights.php",
+            {
+                param: parameter,
+                col: column,
+                mode: "checkbox"
+            },
+            function(data) {
+                if (data == "1") {
+                    $("#remove_div").css("display", "none");
+                    $("#result").html("<p style='text-align: center;'>No flights available for the requested criteria.</p>");
+                } else {
+                    $("#result").html(data);
+                    $("#remove").click(function() {
+                        $("#query_result").css("display", "inherit");
+                        $('input[name=flight]').each(function () {
+                            if (this.checked) {
+                                selectedFlights.push($(this).val());
+                                // alert($(this).val());
+                            }
+                        });
+                        if (selectedFlights.length != 0) {
+                            $("#remove_div").css("display", "none");
+                            $("#result").css("display", "none");
+                            $("#query_result").css("display", "inherit");
+                            removeFlight(selectedFlights);
+                        } else {
+                            $("#query_result").html(data);
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    *{
+        font-family: Lexend Deca;
+    }
+
+    #remove_flights_container {
+        margin: 0 auto;
+        position: relative;
+        top: 240px;
+        background-image: radial-gradient(circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
+        color: white;
+        border-radius: 30px;
+        padding: 25px;
+        width: 80vw;
+    }
+
+    .labels {
+        font-weight: 800;
+    }
+
+    .criteria {
+        display: none;
+    }
+
+    .chosen {
+        display: inherit;
+        margin-top: 15px;
+    }
+
+    #search_by_div {
+        display: flex;
+    }
+
+    #search_by {
+        margin-right: 100px;
+        margin-top: 10px;
+        width: 15vw;
+        height: 35px;
+    }
+    
+    .parameter {
+        margin-top: 10px;
+        height: 35px;
+    }
+
+    #search {
+        background-color: transparent;
+        border: 0px;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+        position: absolute;
+        right: 25px;
+        bottom: 20px;
+        transition-duration: 0.2s;
+    }
+    
+    #search:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+
+    #search:disabled {
+        font-weight: 600;
+        transform: scale(1);
+        color: #606060;
+    }
+
+    #result {
+        color: white;
+        position: relative;
+        top: 95px;
+        width: 60vw;
+        margin: 0 auto;
+    }
+
+    #remove_div {
+        text-align: center;
+        position: relative;
+        top: 120px;
+        display: none;
+    }
+    
+    #remove {
+        background-image: radial-gradient( circle 738px at 7.4% 47.9%,  rgba(225,63,79,1) 0%, rgba(245,61,79,1) 47%, rgba(247,161,175,1) 90.2% );
+        color: white;
+        border-width: 0px;
+        border-radius: 15px;
+        height: 35px;
+        width: 75px;
+        font-size: 15px;
+        transition-duration: 0.2s;
+    }
+
+    #remove:hover {
+        font-weight: 800;
+        transform: scale(1.05);
+    }
+
+    #query_result {
+        position: relative;
+        top: 95px;
+        text-align: center;
+        display: none;
+    }
+</style>
+
+<div id="remove_flights_container">
+    <div id="search_by_div">
+        <label for="search_by" id="search_by_label" class="labels">SEARCH BY<br>
+            <select id="search_by" required>
+                <option disabled selected value="1">Select criteria...</option>
+                <option value="#src_div">Departure city</option>
+                <option value="#des_div">Destination city</option>
+                <option value="#depart_date_div">Departure date</option>
+                <option value="#arrive_date_div">Arrival date</option>
+            </select>
+        </label>
+    </div>
+    
+    <div id="search_criteria">
+        <div id="src_div" class="criteria">
+            <br>
+            <label for="src_dropbox" id="src_label" class="labels">FROM<br>
+                <select id="src_dropbox" class="parameter" required>
+                    <option disabled selected value="1">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+        </div>
+        
+        <div id="des_div" class="criteria">
+            <br>
+            <label for="des_dropbox" id="des_label" class="labels">TO<br>
+                <select id="des_dropbox" class="parameter" required>
+                    <option disabled selected value="1">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+        </div>    
+
+        <div id="depart_date_div" class="criteria">
+            <br>
+            <label for="depart_date" id="depart_date_label" class="labels">DEPART DATE<br>
+                <input type="date" id="depart_date" name="depart_date" class="parameter" required>
+            </label>
+        </div>
+
+        <div id="arrive_date_div" class="criteria">
+            <br>
+            <label for="arrive_date" id="arrive_date_label" class="labels">ARRIVE DATE<br>
+                <input type="date" id="arrive_date" name="arrive_date" class="parameter" required>
+            </label>
+        </div>
+    </div>
+    
+    <button id="search">SEARCH</button>
+</div>
+
+<div id="result"></div>
+
+<div id="remove_div"><button id="remove">remove.</button></div>
+
+<div id="query_result"></div>

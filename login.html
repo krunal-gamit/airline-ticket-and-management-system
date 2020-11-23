@@ -1,91 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="Javascript/login.js"></script>
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
+     *{
+        font-family: Lexend Deca;
+    }
+
+    #login_page {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90vw;
+        max-width: 40%;
+        padding: 20px;
+        border-width: 15px;
+        border-radius: 25px;
+        background-color: white;
+        align-items: center;
+    }
+
+    #login_page{
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.004),
+  0 -6.7px 5.3px rgba(0, 0, 0, 0.008),
+  0 -12.5px 10px rgba(0, 0, 0, 0.006),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 -22.3px 17.9px rgba(0, 0, 0, 0.022),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.036)
 }
 
-* {
-  box-sizing: border-box;
-}
+    #inputs {
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        color: black;
+        padding: 10px;
+        margin-top: 10px;
+    }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-}
+    #buttons {
+        display: flex;
+        margin-top: 35px;
+        margin-left: 20px;
+    }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
+    button {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border-width: 0px;
+        font-weight: 600;
+        color: black;
+        font-size: 17.5px;
+        transition-duration: 0.2s;
+        margin-right: 15px;
+        outline: none;
+    }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    button:hover {
+        color: #e51937;
+        font-weight: 900;
+    }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
+    label {
+        font-weight: 800;
+        font-size: 14.5px;
+        margin-bottom: 10px;
+    }
 
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
+    .login_ {
+        margin-top: 10px;
+        height: 35px;
+    }
 
-.registerbtn:hover {
-  opacity: 1;
-}
 
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
 </style>
-</head>
-<body>
 
-<form action="/action_page.php">
-  <div class="container">
-    <h1>Sign in</h1>
-    <hr>
 
-    <label for="email"><b>Email:-</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <label for="psw"><b>Password:-</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <hr>
-
-    <button type="submit" class="signupbtn">Sign in</button>
-  </div>
-  
-</form>
-
-</body>
-</html>
+<div id="login_page">
+    <div id="inputs">
+        <label for="username">USERNAME<br>
+        <input type="text" name="username" value="" id="username" class="login_"></label><br>
+        <label for="password">PASSWORD<br>
+        <input type="password" name="password" value="" id="password" class="login_"></label><br>
+    </div>
+    <div id="buttons">
+        <button type="button" name="submit" value="submit" id="submit">LOGIN</button><br>
+        <button  type="button" name="back" value="back" id="back">BACK TO SEARCH</button>
+    </div>
+</div>
+<div class="result"></div>
+<div class="body"></div>

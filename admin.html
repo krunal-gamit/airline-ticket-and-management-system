@@ -1,0 +1,66 @@
+<script src="Javascript/admin.js"></script>
+<style>
+    #admin_page {
+        background-color: #202020;
+        color: black;
+        font-family: 'Inter', sans-serif, Lexend Deca;
+    }
+
+    #navBar {
+        background-image: radial-gradient( circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
+        width: 100vw;
+        height: 150px;
+        position: absolute;
+        top: 90px;
+        right: 0px;
+        display: flex;
+    }
+
+    .navButton {
+        background-color: transparent;
+        color: white;
+        font-family: Lexend Deca;
+        border: 0px;
+        height: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        transition-duration: 0.2s;
+        padding-left: 25px;
+    }
+
+    .navButton:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+
+    .search {
+        margin-left: auto;
+        margin-right: 17.5px;
+    }
+    #splash {
+        position: relative;
+        top: 150px;
+        color: white;
+        margin-left: 75px;
+        font-size: 50px;
+        font-weight: 800;
+    }
+#container{
+    margin-top: 100px;
+}
+</style>
+<div id='admin_page'>
+    <div id="navBar">
+        <button id="list_flights_button" class="navButton">list all flights</button>
+        <button id="add_flights_button" class="navButton">add flights</button>
+        <button id="remove_flights_button" class="navButton">remove flights</button>
+        <button id="change_prices_button" class="navButton">change prices</button>
+        <button id="search_page_button" class="navButton search">back to search</button>
+    </div>
+    <div id="container">
+        <div id="splash">
+            WELCOME, <span id='user_id'></span>.
+        </div>
+    </div>
+</div>
