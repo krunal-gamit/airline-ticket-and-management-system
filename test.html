@@ -9,9 +9,8 @@
         function func() {
             $.post("test.php", 
             {
-                mode: "credit card",
-                amount: 1000,
-                user_id: 1
+                username: $("#username").val(),
+                password: $("#password").val()
             }, 
             function (data){
                 $("body").append(data);

@@ -15,12 +15,14 @@ $("#submit").click(function() {
             password = $("#password").val();
             loadUser();
             loadSearch();
+            loadSearch();
         }
     });
 });
 
 $("#back").click(function () {
     loadUser();
+    loadSearch();
     loadSearch();
 });
 
