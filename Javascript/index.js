@@ -9,8 +9,6 @@ var flight_go = 0;
 var flight_ret = 0;
 var trip_type = "";
 
-
-
 function loadSearch() {
     $.get("search.html", function(data) {
         $("div.body").html(data);

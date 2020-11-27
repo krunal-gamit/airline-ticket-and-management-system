@@ -21,5 +21,5 @@ insert into Flight (src, des, depart_time, arrive_time, depart_date, arrive_date
 insert into Flight (src, des, depart_time, arrive_time, depart_date, arrive_date, airplane_name, noOfSeats, amount) values ('Varanasi', 'Ahmedabad', '18:30:00', '20:20:00', '2020-05-03', '2020-05-03', 'Airbus A320neo', 160, 2999.00);
 insert into Flight (src, des, depart_time, arrive_time, depart_date, arrive_date, airplane_name, noOfSeats, amount) values ('Pondicherry', 'Ahmedabad', '22:30:00', '01:05:00', '2020-05-03', '2020-05-04', 'Airbus A320neo', 160, 1999.00);
 
-insert into Users (username, password, email_id) values ('felafel', 'admin_password', 'felafel@airvana.com');
+insert into Users (username, password, email_id) values ('adminTest', 'admin_password', 'felafel@airvana.com');
 insert into Users (username, password, email_id) values ('dhwanil-ditani', 'password', 'ditanidhwanil@gmail.com');

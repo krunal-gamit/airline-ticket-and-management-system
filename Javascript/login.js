@@ -1,5 +1,3 @@
-
-
 $("#submit").click(function() {
     $.post("login.php",
     {
@@ -21,8 +19,8 @@ $("#submit").click(function() {
     });
 });
 
-
 $("#back").click(function () {
+    loadUser();
     loadSearch();
 });
 

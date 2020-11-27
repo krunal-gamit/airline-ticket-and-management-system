@@ -8,7 +8,7 @@ $return_date = $_POST["return_date"];
 $src = $_POST["src"];
 $des = $_POST["des"];
 
-$conn = mysqli_connect("localhost", "root", "", "Ticket_Booking");
+$conn = mysqli_connect("localhost:3306", "devuser", "password", "Ticket_Booking");
 
 if (!$conn) {
     die("Connection Failed". mysqli_connect_error());

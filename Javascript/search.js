@@ -1,6 +1,3 @@
-
-
-
 function InsertPassenger(index) {
     var c = "passenger" + index;
     var count = Number(index)+1;
